@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class RunAwayAI : MonoBehaviour
 {
@@ -19,19 +20,28 @@ public class RunAwayAI : MonoBehaviour
     public Transform target;
     private bool _alive;
     private bool _isSeen;
+    //private bool _aliveAnim;
+    private Animator _animator;
+    private NavMeshAgent agent;
+
 
     void Start()
     {
         _alive = true;
+        //_animator.SetBool("isDeadBy", false);
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
         if (_alive)
         {
+            _animator = GetComponent<Animator>();
+
             if (_isSeen)
             {
-                transform.Translate(0, 0, speed * Time.deltaTime); // will not move 
+
+                //transform.Translate(0, 0, speed * Time.deltaTime); // will not move 
             }
 
 
@@ -46,37 +56,45 @@ public class RunAwayAI : MonoBehaviour
 
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
-            if (Physics.SphereCast(ray, 0.75f, out hit))
+            if (Physics.SphereCast(ray, 1.75f, out hit))
             {
                 GameObject hitObject = hit.transform.gameObject;
                 if (hitObject.GetComponent<PlayerCharacter>())
                 {
 
-                    transform.Rotate(0, Random.Range(180, 360), 0);
+                    //transform.Rotate(0, Random.Range(180, 360), 0);
                     //transform.Translate(0, 0, speed * Time.deltaTime);
                     _isSeen = true;
+                    _animator.SetBool("isSeen", true);
+                    //agent.destination = GameObject.Find("HelpStop").transform.position;
+                    Debug.Log("Bystander should run to base for help");
                     if (GameObject.Find("Player").transform.position != null)
                     {
-                        Debug.Log("The player position is " + GameObject.Find("Player").transform.position);
+                        agent.destination = GameObject.Find("HelpStop").transform.position;
+                        //Debug.Log("The player position is " + GameObject.Find("Player").transform.position);
                     }
                     //transform.LookAt(GameObject.Find("Player").transform.position);
                     //PlayerCharacter playerPosition = GetComponent<PlayerCharacter>();
+
                     if (_fireball == null)
                     {
-
-                       
-                       // transform.LookAt(GameObject.Find("Player").transform.position);
-                       // _fireball = Instantiate(fireballPrefab) as GameObject;
-                       // _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
-                       // _fireball.transform.rotation = transform.rotation;
+                        // transform.LookAt(GameObject.Find("Player").transform.position);
+                        // _fireball = Instantiate(fireballPrefab) as GameObject;
+                        // _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
+                        // _fireball.transform.rotation = transform.rotation;
                     }
                 }
                 else if (hit.distance < obstacleRange)
                 {
-                    float angle = Random.Range(180, 360);
-                    transform.Rotate(0, angle, 0);
+                    //float angle = Random.Range(180, 360);
+                    //transform.Rotate(0, angle, 0);
                 }
             }
+        }
+        else
+        {
+            _animator.SetBool("isDeadBy", true);
+            agent.SetDestination(transform.position);
         }
     }
 
