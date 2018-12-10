@@ -7,6 +7,8 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 public class Key_Pickup : MonoBehaviour
 {
     public Transform other;
@@ -18,6 +20,13 @@ public class Key_Pickup : MonoBehaviour
     [SerializeField] private AudioSource soundSource; //player object
     [SerializeField] private AudioClip itemPickupSound; //audio clip
 
+    //KeyCard RawImage
+    public RawImage keycardImage; //rawImage
+
+
+    void Start(){
+        keycardImage.gameObject.SetActive(false);
+    }
 
     void Update()
     {
@@ -31,6 +40,7 @@ public class Key_Pickup : MonoBehaviour
                         //Sound play
                         soundSource.PlayOneShot(itemPickupSound);
                         soundPlayed = false;
+                        keycardImage.gameObject.SetActive(true);
                     }
                 }
                 
@@ -48,6 +58,7 @@ public class Key_Pickup : MonoBehaviour
 
     public void KeyReset()
     {
+        keycardImage.gameObject.SetActive(false);
         soundPlayed = true;
 		key = false;
         this.gameObject.SetActive(true);

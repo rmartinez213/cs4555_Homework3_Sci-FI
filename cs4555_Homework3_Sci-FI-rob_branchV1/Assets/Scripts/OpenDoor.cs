@@ -5,7 +5,7 @@ public class OpenDoor : MonoBehaviour
     public Transform other;
     public float closeDistance = 0.5F;
 	private Animator _animator;
-
+    
 
 	void Start(){
 		_animator = GetComponent<Animator>();

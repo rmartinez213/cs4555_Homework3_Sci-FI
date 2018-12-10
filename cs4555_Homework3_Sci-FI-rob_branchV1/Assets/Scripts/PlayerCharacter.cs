@@ -25,7 +25,11 @@ public class PlayerCharacter : MonoBehaviour
 
     public void StartAgain()
     {
+        //Increase Player health bar back to 100
         _health = 100;
+        ratioText.text = (_health).ToString();
+        float ratio = _health / 100.0f;
+        currentHealthBar.rectTransform.localScale = new Vector3(ratio, 1, 1);
 
         this.gameObject.transform.rotation = spawn.transform.rotation;
         this.gameObject.transform.position = spawn.transform.position;

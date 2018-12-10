@@ -6,12 +6,22 @@
 //==========================================================================================
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponToggleScript : MonoBehaviour {
 
 	public static int currentWeapon = 0;
 
-	void Start () {
+    //Gun RawImage
+    [SerializeField] private RawImage heavyGunImage; //rawImage
+    [SerializeField] private RawImage rifleGunImage; //rawImage
+
+    //Sound Source Code
+    [SerializeField] private AudioSource soundSource; //player object
+    [SerializeField] private AudioClip switchWeaponSound; //audio clip
+
+
+    void Start () {
 		selectWeapon();
 	}
 
@@ -35,12 +45,19 @@ public class WeaponToggleScript : MonoBehaviour {
 
 		foreach(Transform weapon in transform){
 
-			if (i == currentWeapon)
-				weapon.gameObject.SetActive(true);
-			else
-				weapon.gameObject.SetActive(false);
-			
-			i++;
+			if (i == currentWeapon){
+                weapon.gameObject.SetActive(true);
+                rifleGunImage.gameObject.SetActive(true);
+                heavyGunImage.gameObject.SetActive(false);
+                soundSource.PlayOneShot(switchWeaponSound);
+            }
+            else{
+                weapon.gameObject.SetActive(false);
+                heavyGunImage.gameObject.SetActive(true);
+                rifleGunImage.gameObject.SetActive(false);
+            }
+
+            i++;
 		}
 	}
 }

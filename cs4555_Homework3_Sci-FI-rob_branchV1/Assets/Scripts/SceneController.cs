@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 //control k+c == comment
 //control k+f == format
 public class SceneController : MonoBehaviour
@@ -7,6 +8,9 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject enemy2Prefab;
     [SerializeField] private GameObject enemy3Prefab;
+    [SerializeField] private Text showEnemyDeath;
+    private int myCurrentKills = 0;
+
     //private GameObject _enemy; //dont need
     //private GameObject _enemy3; //Enemy that doesnt attack
 
@@ -138,6 +142,10 @@ public class SceneController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
+            //Reset Death Count on HUD
+            myCurrentKills = 0;
+            showEnemyDeath.text = myCurrentKills.ToString();
+
             Debug.ClearDeveloperConsole();
             Debug.Log("THIS IS INSIDE SCENECONTROLLER.CS");
 
@@ -194,6 +202,7 @@ public class SceneController : MonoBehaviour
             if (listOfEnemies[i] == null)
             { //This enemy has been killed or hasnt been assigned an instance yet
                 _isKilled = true;
+                showEnemyDeath.text = myCurrentKills++.ToString();
                 UpdateEnemies();
             }
         }
@@ -203,6 +212,8 @@ public class SceneController : MonoBehaviour
         randomEnemyType = Random.Range(1, 4);  // 1==enemy1, 2==enemy2, 3==enemy3
         currentEnemies--; //1 enemy is killed 
         int newEnemies = Random.Range(1, 4); //Spawn 1-3 enemies after 1 is killed
+
+        //showEnemyDeath.text = myCurrentKills++.ToString();
 
         while (newEnemies + currentEnemies > 10)
         { //If >= 10 reroll since we dont want more than 10 enemies on the field

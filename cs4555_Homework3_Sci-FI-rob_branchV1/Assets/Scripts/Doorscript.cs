@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Doorscript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Doorscript : MonoBehaviour
     private bool isOpen = false;
     private bool isInsideTrigger = false;
 
+    
 
     // Use this for initialization
     void Start()

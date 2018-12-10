@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ReactiveTarget : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ReactiveTarget : MonoBehaviour
 
     private int EnemyHealth = 2;
 
+   
     public void ReactToHit(int damage)
     {
         _animator = GetComponent<Animator>();
@@ -62,7 +64,7 @@ public class ReactiveTarget : MonoBehaviour
         //pos.y = -1.25f;
         //this.transform.position = pos;
 
-        //     _animator.SetBool("isDead", true);
+        
 
 
         yield return new WaitForSeconds(3.5f);
