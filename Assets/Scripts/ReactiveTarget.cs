@@ -6,7 +6,7 @@ public class ReactiveTarget : MonoBehaviour
     private Animator _animator;
 
 
-    private int EnemyHealth = 2;
+    public int EnemyHealth = 2;
 
     public void ReactToHit(int damage)
     {
@@ -15,12 +15,17 @@ public class ReactiveTarget : MonoBehaviour
         WanderingAI behavior = GetComponent<WanderingAI>();
         HidingAI hiding = GetComponent<HidingAI>();
         RunAwayAI running = GetComponent<RunAwayAI>();
+        BossAI boss = GetComponent<BossAI>();
         //        SceneController enemies = GetComponent<SceneController>();
         //        if (enemies == null) {
         //            Debug.LogError("Cant find SceneController ");
         //        }
         EnemyHealth = EnemyHealth - damage;
         Debug.Log("Someone got hit");
+
+        if (EnemyHealth <=50 ) {
+            _animator.SetBool("isLess50", true);
+        }
 
         if (EnemyHealth == 0)
         {
@@ -33,6 +38,10 @@ public class ReactiveTarget : MonoBehaviour
             if (aliveanim != null)
             {
                 aliveanim.SetAlive(false);
+                StartCoroutine(Die());
+            }
+            if (boss != null) {
+                boss.SetAlive(false);
                 StartCoroutine(Die());
             }
         }

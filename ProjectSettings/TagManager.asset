@@ -7,6 +7,7 @@ TagManager:
   - Target
   - MuzzleFlash
   - music
+  - level
   layers:
   - Default
   - TransparentFX

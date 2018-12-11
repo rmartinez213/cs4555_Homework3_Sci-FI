@@ -50,7 +50,7 @@ public class RunAwayAI : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation,
 Quaternion.LookRotation(target.position - transform.position), 3 * Time.deltaTime);
                 transform.position += transform.forward * 3 * Time.deltaTime;
-                //SceneManager.LoadScene("scene2"); it does change 
+                SceneManager.LoadScene("scene3"); //it does change 
             }
 
             ////If player is next to enemy2it shall lock on to them

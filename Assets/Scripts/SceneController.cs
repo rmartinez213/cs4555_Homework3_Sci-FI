@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 //control k+c == comment
 //control k+f == format
 public class SceneController : MonoBehaviour
@@ -7,6 +8,8 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject enemy2Prefab;
     [SerializeField] private GameObject enemy3Prefab;
+
+    private int myCurrentKills = 0; //may need to be public?
     //private GameObject _enemy; //dont need
     //private GameObject _enemy3; //Enemy that doesnt attack
 
@@ -194,6 +197,11 @@ public class SceneController : MonoBehaviour
             if (listOfEnemies[i] == null)
             { //This enemy has been killed or hasnt been assigned an instance yet
                 _isKilled = true;
+                myCurrentKills++;
+                Debug.Log("TOTAL KILLS " + myCurrentKills);
+                if (myCurrentKills >= 10) {
+                    SceneManager.LoadScene("scene4");
+                }
                 UpdateEnemies();
             }
         }
