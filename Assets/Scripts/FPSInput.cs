@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 // basic WASD-style movement control
 // commented out line demonstrates that transform.Translate instead of charController.Move doesn't have collision detection
@@ -93,6 +94,11 @@ public class FPSInput : MonoBehaviour
         else if (Input.GetKey(KeyCode.A))
         {
             speed = 5f;
+        }
+
+        if(Input.GetKey(KeyCode.P)){
+            RayShooter.unlockCurser();
+            SceneManager.LoadScene("PauseMenu");
         }
     }
 }

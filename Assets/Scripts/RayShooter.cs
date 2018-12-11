@@ -8,8 +8,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class RayShooter : MonoBehaviour {
-	private Camera _camera;
+public class RayShooter : MonoBehaviour
+{
+    private Camera _camera;
 
 
     //Sound Source
@@ -21,15 +22,24 @@ public class RayShooter : MonoBehaviour {
     //To attach bullet picture to hitpoint
     public GameObject Shotgun_bullet_hole;
     public GameObject AK47_bullet_hole;
-	private int damage = 1;
+    private int damage = 1;
 
 
-	void Start() {
-		_camera = GetComponent<Camera>();
+    void Start()
+    {
+        _camera = GetComponent<Camera>();
+        lockCurser();
+    }
 
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
-	}
+    public static void lockCurser(){
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public static void unlockCurser(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    } 
 
 	void OnGUI() {
 		int size = 12;

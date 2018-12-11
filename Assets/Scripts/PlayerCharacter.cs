@@ -11,7 +11,9 @@ public class PlayerCharacter : MonoBehaviour
     public GameObject HealthObject;
     public GameObject HealthObject2;
 	public GameObject KeyObject;
-
+    public GameObject AliveHud;
+    public GameObject DeadMenu;
+    private MouseLook mouseLook;
     
     public Image currentHealthBar;
     public Text ratioText;
@@ -84,6 +86,15 @@ public class PlayerCharacter : MonoBehaviour
             //Play ending theme song
             BackgroundMusicDead.PlayMusic();
 
+            //Sets off HUD for when dying
+            AliveHud.gameObject.SetActive(false);
+            //Sets the Menu 
+            DeadMenu.gameObject.SetActive(true);
+
+            //UnlockCurser so that curser is visible and not in game
+            RayShooter.unlockCurser();
+
+            MouseLook.shutOffMouselook();
 
             //this.gameObject.SetActive(false);
         }
