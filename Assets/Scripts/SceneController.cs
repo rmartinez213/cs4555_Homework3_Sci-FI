@@ -156,15 +156,19 @@ public class SceneController : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
 
         Debug.Log("Active scene is '" + scene.name + "'.");
+        PlayerPrefs.SetString("sceneName", scene.name);
         if (scene.name == "Scene3")
         {
 
             if (myCurrentKills == 6 ) {
+
+                
                 SceneManager.LoadScene("Scene4");
             }
 
             if (Input.GetKeyDown(KeyCode.BackQuote))
             {
+                PlayerPrefs.SetString("sceneName", scene.name);
                 //Reset Death Count on HUD
                 myCurrentKills = 0;
                 showEnemyDeath.text = myCurrentKills.ToString();
@@ -238,6 +242,8 @@ public class SceneController : MonoBehaviour
                     
                     
                     showEnemyDeath.text = myCurrentKills++.ToString();
+                    PlayerPrefs.SetInt("savedKills",myCurrentKills);
+
                     //UpdateEnemies();
                 }
             }

@@ -11,3 +11,6 @@ sceneSetups:
 - path: Assets/Scene4.unity
   isLoaded: 0
   isActive: 0
+- path: Assets/PauseMenu.unity
+  isLoaded: 0
+  isActive: 0

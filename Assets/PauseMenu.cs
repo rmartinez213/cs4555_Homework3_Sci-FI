@@ -7,7 +7,10 @@ public class PauseMenu : MonoBehaviour {
 
     //New Game scene 
     public void ResumeGame(){
-        SceneManager.LoadScene("RESUME_GENERIC_SCENE");
+        //SceneManager.LoadScene("RESUME_GENERIC_SCENE");
+        SceneManager.UnloadSceneAsync("PauseMenu");
+
+        RayShooter.lockCurser();
     }
 
     //Continue Game Scene

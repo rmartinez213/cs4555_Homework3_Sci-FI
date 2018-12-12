@@ -96,9 +96,11 @@ public class FPSInput : MonoBehaviour
             speed = 5f;
         }
 
-        if(Input.GetKey(KeyCode.P)){
+        if(Input.GetKeyUp(KeyCode.P)){
             RayShooter.unlockCurser();
-            SceneManager.LoadScene("PauseMenu");
+            
+            SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
+
         }
     }
 }
