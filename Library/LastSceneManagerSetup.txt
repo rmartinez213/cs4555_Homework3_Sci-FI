@@ -2,15 +2,3 @@ sceneSetups:
 - path: Assets/MainMenu.unity
   isLoaded: 1
   isActive: 1
-- path: Assets/Scene.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/Scene3.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/Scene4.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/PauseMenu.unity
-  isLoaded: 0
-  isActive: 0

@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Character_w_ani\Mutant\BossAI.cs" />
     <Compile Include="Assets\DeadMenu.cs" />
     <Compile Include="Assets\DontDestroy.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
