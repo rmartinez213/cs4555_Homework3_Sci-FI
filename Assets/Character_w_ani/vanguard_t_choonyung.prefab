@@ -2148,6 +2148,8 @@ MonoBehaviour:
   soundSource: {fileID: 82830706383722668}
   shootPlayerSound: {fileID: 8300000, guid: f095ed7fb8ed84caa814c14d6ea51fc0, type: 3}
   deathSound: {fileID: 8300000, guid: 1f5189646b540fe45b379f28b2956abb, type: 3}
+  showEnemyDeath: {fileID: 114410800352612262, guid: 4913b9e5cf605d749b3646ebe4c99b98,
+    type: 2}
   fireballPrefab: {fileID: 1168439036891932, guid: 4c7a69d5bf61b4d37b935a17d3fcae80,
     type: 2}
   target: {fileID: 0}

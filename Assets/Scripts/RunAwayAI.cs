@@ -8,6 +8,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class RunAwayAI : MonoBehaviour
 {
@@ -20,10 +21,18 @@ public class RunAwayAI : MonoBehaviour
     public Transform target;
     private bool _alive;
     private bool _isSeen;
+    private bool _isSaved = false; //HW3 Bystander has been seen and ready for rescue
     //private bool _aliveAnim;
     private Animator _animator;
     private NavMeshAgent agent;
 
+
+    //on collision
+    void OnTriggerEnter(Collider col)
+    {
+        print("Hostage Rescued!! ");
+        //SceneManager.LoadScene("Scene3");//works!!
+    }
 
     void Start()
     {
@@ -40,10 +49,17 @@ public class RunAwayAI : MonoBehaviour
 
             if (_isSeen)
             {
-
+                SceneManager.LoadScene("Scene3");
                 //transform.Translate(0, 0, speed * Time.deltaTime); // will not move 
             }
-
+            if (_isSaved)
+            {
+                target = GameObject.FindWithTag("Player").transform;
+                transform.rotation = Quaternion.Slerp(transform.rotation,
+Quaternion.LookRotation(target.position - transform.position), 3 * Time.deltaTime);
+                transform.position += transform.forward * 3 * Time.deltaTime;
+                //SceneManager.LoadScene("scene3"); //it does change 
+            }
 
             ////If player is next to enemy2it shall lock on to them
             //Vector3 offset = GameObject.Find("Player").transform.position - transform.position;
@@ -70,8 +86,14 @@ public class RunAwayAI : MonoBehaviour
                     Debug.Log("Bystander should run to base for help");
                     if (GameObject.Find("Player").transform.position != null)
                     {
-                        agent.destination = GameObject.Find("HelpStop").transform.position;
+                        _isSaved = true;
+                        //agent.destination = GameObject.Find("HelpStop").transform.position; //to go to a specific location
                         //Debug.Log("The player position is " + GameObject.Find("Player").transform.position);
+                        //Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
+
+
+
+
                     }
                     //transform.LookAt(GameObject.Find("Player").transform.position);
                     //PlayerCharacter playerPosition = GetComponent<PlayerCharacter>();

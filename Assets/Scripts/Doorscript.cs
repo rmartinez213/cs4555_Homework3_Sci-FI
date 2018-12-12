@@ -42,7 +42,7 @@ public class Doorscript : MonoBehaviour
         if ((other.tag == "Player"))
         {
 
-            _animator.SetBool("open", false);
+            _animator.SetBool("open", true);
         }
     }
 
