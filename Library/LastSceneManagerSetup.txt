@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/CutSCENE.unity
+- path: Assets/EndingCutscene.unity
   isLoaded: 1
   isActive: 1
