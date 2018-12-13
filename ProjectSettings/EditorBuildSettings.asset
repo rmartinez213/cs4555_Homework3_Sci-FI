@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PauseMenu.unity
     guid: 08489921f8a184f809fcbe66164e9936
+  - enabled: 1
+    path: Assets/CutSCENE.unity
+    guid: 8c28519a1ae6d416cafca39ee395f2de
+  - enabled: 1
+    path: Assets/EndingCutscene.unity
+    guid: fac68d1eba3254f84a4d370126248d44
   m_configObjects: {}

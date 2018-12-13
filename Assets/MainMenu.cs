@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour {
     //New Game scene 
     public void PlayGame(){
         Debug.Log("YAY PLAYYYYY");
-        SceneManager.LoadScene("Scene");
+        SceneManager.LoadScene("CutScene");
     }
 
     //Continue Game Scene

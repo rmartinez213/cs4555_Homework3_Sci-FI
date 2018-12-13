@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BossAI : MonoBehaviour
 {
@@ -65,7 +66,7 @@ public class BossAI : MonoBehaviour
                     {
 
                         _animator.SetBool("isBreath", false);
-                         _animator.SetBool("isBreath", true);
+                        _animator.SetBool("isBreath", true);
                         //Debug.Log("Is shooting");
                         transform.LookAt(GameObject.Find("Player").transform.position);
 
@@ -102,7 +103,7 @@ public class BossAI : MonoBehaviour
                         timer = 0;
                     }
 
-                    
+
 
                 }
                 //has not seen me so just patrol
@@ -141,7 +142,23 @@ public class BossAI : MonoBehaviour
         else
         {
             _animator.SetBool("isDeadMut", true);
+            Debug.Log("He dead");
+
+          
+
         }
+    }
+
+    IEnumerator MyCoroutine()
+    {
+        //This is a coroutine
+
+
+        yield return new WaitForSeconds(5f);   //Wait 5sec
+
+        //SceneManager.UnloadSceneAsync("Scene4");
+        //SceneManager.LoadScene("EndingCutscene");
+
     }
 
     public void SetAlive(bool alive)

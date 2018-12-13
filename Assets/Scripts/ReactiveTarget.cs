@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ReactiveTarget : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class ReactiveTarget : MonoBehaviour
             if (boss != null)
             {
                 boss.SetAlive(false);
-                StartCoroutine(Die());
+                StartCoroutine(DieBoss());
             }
         }
         if (hiding != null)
@@ -78,6 +79,31 @@ public class ReactiveTarget : MonoBehaviour
 
         yield return new WaitForSeconds(3.5f);
         Destroy(this.gameObject);
+    }
+
+    private IEnumerator DieBoss()
+    {
+
+        //this.transform.Rotate(-90, 0, 0);
+        //What I added
+        //Vector3 pos = transform.position;
+        //pos.y = -1.25f;
+        //this.transform.position = pos;
+
+        //     _animator.SetBool("isDead", true);
+
+
+        yield return new WaitForSeconds(4.5f);
+        Destroy(this.gameObject);
+
+        var go = new GameObject("Sacrificial Lamb");
+        DontDestroyOnLoad(go);
+
+        foreach (var root in go.scene.GetRootGameObjects())
+            Destroy(root);
+        SceneManager.UnloadSceneAsync("Scene4");
+        SceneManager.LoadScene("EndingCutscene");
+
     }
 
 

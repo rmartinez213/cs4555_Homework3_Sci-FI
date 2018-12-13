@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Character_w_ani\Mutant\BossAI.cs" />
+    <Compile Include="Assets\Cutscene.cs" />
     <Compile Include="Assets\DeadMenu.cs" />
     <Compile Include="Assets\DontDestroy.cs" />
     <Compile Include="Assets\Fireball\bossFire\DamageEnemy.cs" />

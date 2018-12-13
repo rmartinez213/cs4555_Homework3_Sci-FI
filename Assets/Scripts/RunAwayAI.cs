@@ -31,7 +31,7 @@ public class RunAwayAI : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         print("Hostage Rescued!! ");
-        //SceneManager.LoadScene("Scene3");//works!!
+        SceneManager.LoadScene("Scene3");//works!!
     }
 
     void Start()
@@ -49,7 +49,7 @@ public class RunAwayAI : MonoBehaviour
 
             if (_isSeen)
             {
-                SceneManager.LoadScene("Scene3");
+                //SceneManager.LoadScene("Scene3");
                 //transform.Translate(0, 0, speed * Time.deltaTime); // will not move 
             }
             if (_isSaved)
