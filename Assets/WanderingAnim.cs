@@ -78,12 +78,12 @@ public class WanderingAnim : MonoBehaviour
                         //Debug.Log("The player position is " + GameObject.Find("Player").transform.position);
 
                     }
-                    transform.LookAt(GameObject.Find("Player").transform.position);
+                    transform.LookAt(GameObject.Find("Player").transform);
                     //PlayerCharacter playerPosition = GetComponent<PlayerCharacter>();
                     if (_fireball == null)
                     {
                         //Debug.Log("Is shooting");
-                        transform.LookAt(GameObject.Find("Player").transform.position);
+                        transform.LookAt(GameObject.Find("Player").transform);
                         _fireball = Instantiate(fireballPrefab) as GameObject;
                         _fireball.transform.position = transform.TransformPoint(0, 1, 1 * 1.5f);
                         _fireball.transform.rotation = transform.rotation;
