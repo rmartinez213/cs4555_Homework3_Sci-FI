@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09577804, g: 0.0744222, b: 0.12654492, a: 1}
+  m_IndirectSpecularColor: {r: 0.07026557, g: 0.046902947, b: 0.06897764, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2185,7 +2185,6 @@ MonoBehaviour:
   soundSource: {fileID: 72383559}
   shootPlayerSound: {fileID: 8300000, guid: f095ed7fb8ed84caa814c14d6ea51fc0, type: 3}
   deathSound: {fileID: 8300000, guid: 1f5189646b540fe45b379f28b2956abb, type: 3}
-  showEnemyDeath: {fileID: 0}
   fireballPrefab: {fileID: 1168439036891932, guid: 4c7a69d5bf61b4d37b935a17d3fcae80,
     type: 2}
   target: {fileID: 0}
@@ -2203,6 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8206e783242b548a88d1c0e5324f51a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyHealth: 2
 --- !u!114 &72383555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20860,6 +20860,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundSource: {fileID: 860731369}
   bulletSound: {fileID: 8300000, guid: f433dd47bae4e4db5a0518044da14a8d, type: 3}
+  fireballPrefab: {fileID: 1168439036891932, guid: 2aa4d13e68ec0914d9628a968cb644ea,
+    type: 2}
+  fireballPrefabWeapon2: {fileID: 1168439036891932, guid: 0794b7e1841884b4c9f78329404a0406,
+    type: 2}
   Shotgun_bullet_hole: {fileID: 1586603500125686, guid: a6cac2cc1e519404ba069ce0a69ef24d,
     type: 2}
   AK47_bullet_hole: {fileID: 1918343045718184, guid: a1309634742b04bb38a60c9dba219b8a,

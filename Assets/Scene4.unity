@@ -190,7 +190,17 @@ MonoBehaviour:
   speed: 3
   obstacleRange: 0.1
   closeDistance: 35
-  fireballPrefab: {fileID: 1265156357222040, guid: 07c770c4eb15b456786dec8d78cee93b,
+  fireballPrefab1: {fileID: 1168439036891932, guid: 87b3ebb8d222b704d95884776fd19f60,
+    type: 2}
+  fireballPrefab2: {fileID: 1168439036891932, guid: e6c75944c07d69e47820748866470571,
+    type: 2}
+  fireballPrefab3: {fileID: 1168439036891932, guid: 945100264827dd14cb63fa7f6543026a,
+    type: 2}
+  fireballPrefab4: {fileID: 1168439036891932, guid: 7d195e525cbfe364197ee5cce02f940a,
+    type: 2}
+  fireballPrefab5: {fileID: 1168439036891932, guid: 87b3ebb8d222b704d95884776fd19f60,
+    type: 2}
+  fireballPrefab6: {fileID: 1168439036891932, guid: e6c75944c07d69e47820748866470571,
     type: 2}
   target: {fileID: 0}
 --- !u!136 &1005090724
