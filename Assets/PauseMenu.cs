@@ -15,6 +15,15 @@ public class PauseMenu : MonoBehaviour {
 
     //Continue Game Scene
     public void QuitGame(){
+
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+
+        var go = new GameObject("Sacrificial Lamb");
+        DontDestroyOnLoad(go);
+
+        foreach (var root in go.scene.GetRootGameObjects())
+            Destroy(root);
+
         SceneManager.LoadScene("MainMenu");
       //  SceneManager.UnloadSceneAsync("");
     }
