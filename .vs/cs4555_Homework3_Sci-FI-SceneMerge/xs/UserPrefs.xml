@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{B6D8AA85-5CDE-FC94-C9CD-082E6AF7D878}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/DeadMenu.cs">
+    <Files>
+      <File FileName="Assets/DeadMenu.cs" Line="22" Column="9" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
